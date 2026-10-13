@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private PlayerInput _input;
+    [SerializeField] private PlayerDragInput _dragInput;
     [SerializeField] private Rigidbody2D _rBody;
     [SerializeField] private float _slamPower;
     [SerializeField] private float _speed;
@@ -14,12 +15,7 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerInput.onPlayerSlam += GroundSlam;
         PlayerInput.onPlayerMove += Move;
-    }
-
-
-    void Update()
-    {
-        
+        PlayerInput.onPlayerLaunch += Launch;
     }
 
 
@@ -32,13 +28,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void GroundSlam()
     {   
+        // if WE DID in fact hit SOMETHING from our raycast, don't ground slam, just ignore this function call and do nothing 
         if(!GroundedCheck())
             _rBody.AddForce(Vector2.down * _slamPower, ForceMode2D.Impulse);
     }
 
     private bool GroundedCheck()
     {
+        // shoot ray downwards and check if we hit something on the ground layer
         RaycastHit2D hit = Physics2D.Raycast(_rBody.position, _rBody.position + Vector2.down, _rayLength , _groundLayer);
+        // if we did not hit anything, return true otherwise false
         return hit.collider != null;
+    }
+
+    private void Launch()
+    {
+        if(GroundedCheck())
+        {
+            _rBody.AddForce(FinalDragVector);
+        }
     }
 }
