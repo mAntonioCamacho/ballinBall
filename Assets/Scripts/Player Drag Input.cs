@@ -2,7 +2,7 @@ using System;
 using System.Collections.Concurrent;
 using UnityEngine;
 
-public class PlayerLaunch : MonoBehaviour
+public class PlayerDragInput : MonoBehaviour
 {
     public GameObject arrowObject;
 
@@ -11,7 +11,7 @@ public class PlayerLaunch : MonoBehaviour
     private Camera mainCamera;
     private Vector3 mouseStartWorldPos;
 
-    public Vector3 FinalDragVector { get; private set; }
+    public Vector3 FinalDragVector { get; private set; } = Vector2.zero;
 
     void Start()
     {

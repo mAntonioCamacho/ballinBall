@@ -8,8 +8,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerDragInput _dragInput;
     [SerializeField] private Rigidbody2D _rBody;
     [SerializeField] private float _slamPower;
+    [SerializeField] private float _launchPower;
     [SerializeField] private float _speed;
-    [SerializeField] private float _rayLength = .8f;
+    [SerializeField] private float _rayLength;
     [SerializeField] private LayerMask _groundLayer;
     void Awake()
     {
@@ -36,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     private bool GroundedCheck()
     {
         // shoot ray downwards and check if we hit something on the ground layer
-        RaycastHit2D hit = Physics2D.Raycast(_rBody.position, _rBody.position + Vector2.down, _rayLength , _groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(_rBody.position, Vector2.down, _rayLength , _groundLayer);
         // if we did not hit anything, return true otherwise false
         return hit.collider != null;
     }
@@ -45,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(GroundedCheck())
         {
-            _rBody.AddForce(FinalDragVector);
+            _rBody.AddForce(_dragInput.FinalDragVector * _launchPower, ForceMode2D.Impulse);
         }
     }
 }
