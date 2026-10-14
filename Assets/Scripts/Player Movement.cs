@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -22,7 +21,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        Vector2 direction = new Vector2(_input.MoveInput.x * _speed, _rBody.velocity.y);
+        // this variable is just testing some new movement speed
+        float xVelocity = (!GroundedCheck()) ? _rBody.velocity.x : ((_rBody.velocity.x < _speed && Math.Abs(_rBody.velocity.x) < 0) ? _input.MoveInput.x * _rBody.velocity.x : _input.MoveInput.x * _speed);
+        // xVelocity parameter is just _input.MoveInput.x * _speed
+        Vector2 direction = new Vector2(xVelocity , _rBody.velocity.y);
         _rBody.velocity = direction;
     }
 
