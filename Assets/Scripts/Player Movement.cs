@@ -50,5 +50,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _rBody.AddForce(_dragInput.FinalDragVector * _launchPower, ForceMode2D.Impulse);
         }
+        _dragInput.FinalDragVector = Vector2.zero;
     }
 }

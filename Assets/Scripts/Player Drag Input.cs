@@ -11,7 +11,7 @@ public class PlayerDragInput : MonoBehaviour
     private Camera mainCamera;
     private Vector3 mouseStartWorldPos;
 
-    public Vector3 FinalDragVector { get; private set; } = Vector2.zero;
+    public Vector3 FinalDragVector { get; set; } = Vector2.zero;
 
     void Start()
     {
