@@ -10,7 +10,7 @@ public class PlayerInput : MonoBehaviour
     
     public Vector2 MoveInput { get; private set; }
 
-    public void Update()
+    void Update()
     {
 
         // Ground Slam
