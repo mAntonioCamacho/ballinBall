@@ -6,19 +6,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerInput _input;
     [SerializeField] private PlayerDragInput _dragInput;
     [SerializeField] private Rigidbody2D _rBody;
-    [SerializeField] private float _slamPower;
     [SerializeField] private float _launchPower;
     [SerializeField] private float _speed;
     [SerializeField] private float _rayLength;
     [SerializeField] private LayerMask _groundLayer;
     void Awake()
     {
-        PlayerInput.onPlayerSlam += GroundSlam;
         PlayerInput.onPlayerMove += Move;
         PlayerInput.onPlayerLaunch += Launch;
     }
 
 
+//
+//      Movement Logic
+//      
     private void Move()
     {
         // this variable is just testing some new movement speed
@@ -28,14 +29,20 @@ public class PlayerMovement : MonoBehaviour
         _rBody.velocity = direction;
     }
 
-
-    private void GroundSlam()
-    {   
-        // if WE DID in fact hit SOMETHING from our raycast, don't ground slam, just ignore this function call and do nothing 
-        if(!GroundedCheck())
-            _rBody.AddForce(Vector2.down * _slamPower, ForceMode2D.Impulse);
+    
+    private void Launch()
+    {
+        if(GroundedCheck())
+        {
+            _rBody.AddForce(_dragInput.FinalDragVector * _launchPower, ForceMode2D.Impulse);
+        }
+        _dragInput.FinalDragVector = Vector2.zero;
     }
 
+
+//
+//      Helper Logic
+//      
     private bool GroundedCheck()
     {
         // shoot ray downwards and check if we hit something on the ground layer
@@ -44,12 +51,13 @@ public class PlayerMovement : MonoBehaviour
         return hit.collider != null;
     }
 
-    private void Launch()
+    public void SetSpeed(float newSpeed)
     {
-        if(GroundedCheck())
-        {
-            _rBody.AddForce(_dragInput.FinalDragVector * _launchPower, ForceMode2D.Impulse);
-        }
-        _dragInput.FinalDragVector = Vector2.zero;
+        _speed = newSpeed;    
+    }
+
+    public void SetLaunchPower(float newLaunchPower)
+    {
+        _launchPower = newLaunchPower;
     }
 }
