@@ -6,7 +6,7 @@ public class BallFormManager : MonoBehaviour
     [SerializeField] private Rigidbody2D _playerRb;
     [SerializeField] private BallForm[] _allBallForms;
     [SerializeField] private GameObject _player;
-    private BallForm currentForm;
+    public BallForm currentScriptObjBallForm { get; private set; }
     private int _ballIndex = 0;
     private PlayerMovement _playerMovement;
 
@@ -15,22 +15,16 @@ public class BallFormManager : MonoBehaviour
     {
         PlayerInput.onPlayerSwapBall += SwapBall;   
         _playerMovement = _player.GetComponent<PlayerMovement>(); 
-        currentForm = _allBallForms[_ballIndex]; 
-        ChangeValues(currentForm); 
+        currentScriptObjBallForm = _allBallForms[_ballIndex]; 
+        ChangeValues(currentScriptObjBallForm); 
     }
 
     private void SwapBall()
     {
-        if(_ballIndex == _allBallForms.Length - 1)
-        {
-            _ballIndex = 0;
-        }
-        else
-        {
-            _ballIndex++;
-        }
-        currentForm = _allBallForms[_ballIndex];
-        ChangeValues(currentForm);
+
+        _ballIndex = (_ballIndex < _allBallForms.Length - 1) ? ++_ballIndex : 0;
+        currentScriptObjBallForm = _allBallForms[_ballIndex];
+        ChangeValues(currentScriptObjBallForm);
     }
 
     private void ChangeValues(BallForm newForm)

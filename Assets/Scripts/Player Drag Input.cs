@@ -41,17 +41,10 @@ public class PlayerDragInput : MonoBehaviour
         Vector3 dragVector = currentMousePos - mouseStartWorldPos;
         float currentDistance = dragVector.magnitude;
 
-        float maxAllowedLength = GetMaxArrowLength();
-        float finalLength = Mathf.Min(currentDistance, maxAllowedLength);
-
         if(currentDistance > .001f)
         {
             float angle = Mathf.Atan2(dragVector.y, dragVector.x) * Mathf.Rad2Deg;
             arrowObject.transform.rotation = Quaternion.Euler(new Vector3(0,0,angle));
-
-            Vector3 localScale = arrowObject.transform.localScale;
-            localScale.y = finalLength;
-            arrowObject.transform.localScale = localScale;
         }
     }
 
