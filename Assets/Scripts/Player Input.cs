@@ -4,9 +4,11 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private KeyCode _swapBall;
-    public static event Action onPlayerMove;
+    [SerializeField] private KeyCode _stopBall;
+    
     public static event Action onPlayerLaunch;
     public static event Action onPlayerSwapBall;
+    public static event Action onPlayerBrakeStop;
     
     public Vector2 MoveInput { get; private set; }
 
@@ -16,15 +18,18 @@ public class PlayerInput : MonoBehaviour
         {
             onPlayerSwapBall?.Invoke();
         }
-        GetMoveInput();
-        if(MoveInput != Vector2.zero)
-        {
-            onPlayerMove?.Invoke();
-        }
+        
+        if(Input.GetAxisRaw("Horizontal") != MoveInput.x)
+            GetMoveInput();
 
         if(Input.GetMouseButtonUp(0))
         {
             onPlayerLaunch?.Invoke();
+        }
+
+        if(Input.GetKey(_stopBall))
+        {
+            onPlayerBrakeStop?.Invoke();
         }
     }
 

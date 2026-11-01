@@ -9,6 +9,9 @@ public class BallForm : ScriptableObject
     public float launchPower;
     public float moveSpeed;
     public float playerGravity;
+    public float brakePower;
+    public float inAirSpeed;
+    public float fallSpeedCap;
     public bool canBreakObjects;
     
 }

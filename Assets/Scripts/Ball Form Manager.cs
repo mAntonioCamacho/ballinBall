@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BallFormManager : MonoBehaviour
@@ -8,20 +9,23 @@ public class BallFormManager : MonoBehaviour
     [SerializeField] private GameObject _player;
     public BallForm currentScriptObjBallForm { get; private set; }
     private int _ballIndex = 0;
-    private PlayerMovement _playerMovement;
+    public static event Action<float,float,float,float,float> changeValues;
 
 
     void Awake()
     {
-        PlayerInput.onPlayerSwapBall += SwapBall;   
-        _playerMovement = _player.GetComponent<PlayerMovement>(); 
-        currentScriptObjBallForm = _allBallForms[_ballIndex]; 
-        ChangeValues(currentScriptObjBallForm); 
+        PlayerInput.onPlayerSwapBall += SwapBall;    
+        currentScriptObjBallForm = _allBallForms[_ballIndex];  
+    }
+
+
+    void Start()
+    {
+        ChangeValues(currentScriptObjBallForm);
     }
 
     private void SwapBall()
     {
-
         _ballIndex = (_ballIndex < _allBallForms.Length - 1) ? ++_ballIndex : 0;
         currentScriptObjBallForm = _allBallForms[_ballIndex];
         ChangeValues(currentScriptObjBallForm);
@@ -33,8 +37,13 @@ public class BallFormManager : MonoBehaviour
         _playerSprite.color = newForm.spriteColor;
         _playerRb.sharedMaterial = newForm.ballPhysics;
         _playerRb.gravityScale = newForm.playerGravity;
-        _playerMovement.SetSpeed(newForm.moveSpeed);
-        _playerMovement.SetLaunchPower(newForm.launchPower);
+        changeValues?.Invoke(
+            newForm.launchPower,
+            newForm.moveSpeed,
+            newForm.brakePower,
+            newForm.inAirSpeed,
+            newForm.fallSpeedCap
+        );
     }
 
 

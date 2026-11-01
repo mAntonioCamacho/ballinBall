@@ -1955,12 +1955,10 @@ MonoBehaviour:
   _input: {fileID: 1178000289}
   _dragInput: {fileID: 1178000288}
   _rBody: {fileID: 1178000282}
-  _launchPower: 30
-  _speed: 2
-  _rayLength: 1
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  _groundCheckRayLength: 1
 --- !u!114 &1178000287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2001,6 +1999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _swapBall: 32
+  _stopBall: 304
 --- !u!114 &1178000290
 MonoBehaviour:
   m_ObjectHideFlags: 0

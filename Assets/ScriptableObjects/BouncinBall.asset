@@ -16,5 +16,9 @@ MonoBehaviour:
   spriteColor: {r: 0, g: 0.7647059, b: 0.8039216, a: 1}
   ballPhysics: {fileID: 6200000, guid: 22fe526bfd327394e840d4781fb68d45, type: 2}
   launchPower: 30
-  moveSpeed: 2
+  moveSpeed: 12
   playerGravity: 1
+  brakePower: 0.98
+  inAirSpeed: 1.975
+  fallSpeedCap: 30
+  canBreakObjects: 0
