@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6934493430697880871}
   - component: {fileID: 7298697608706895422}
   - component: {fileID: 1396605224182551955}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bouncy Platform (all sides)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

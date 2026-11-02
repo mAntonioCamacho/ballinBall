@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4072187004578772953}
   - component: {fileID: 2702652188536263198}
   - component: {fileID: 218312310677776805}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bouncy Platform (one side)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768524890241962222}
   serializedVersion: 2
-  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.59, y: 7.22, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3727173724086373944
 SpriteRenderer:
   m_ObjectHideFlags: 0

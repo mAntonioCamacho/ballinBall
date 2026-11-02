@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5820593439654138199}
   - component: {fileID: 3280241148897571528}
   - component: {fileID: 7943941643484786479}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,12 +271,12 @@ PolygonCollider2D:
     - - {x: -2.25, y: -2.25}
       - {x: -2.25, y: 1.25}
       - {x: 0.25, y: 1.25}
-      - {x: 0.25, y: 3.75}
+      - {x: 0.25, y: 3.25}
       - {x: 1.25, y: 3.75}
-      - {x: 1.25, y: -2.25}
+      - {x: 1.25, y: -1.7500005}
       - {x: 0.25, y: -2.25}
       - {x: 0.25, y: -0.25}
       - {x: -1.25, y: -0.24999985}
-      - {x: -1.25, y: -2.25}
+      - {x: -1.25, y: -1.75}
       - {x: -2.25, y: -2.25}
   m_UseDelaunayMesh: 0
