@@ -8,7 +8,7 @@ public class CameraFollowPlayerYxis : MonoBehaviour
     private float _lowestCamPos = 0f;
     private float _deadZone = 1.5f;
     private Vector3 _cameraVelocity = Vector3.zero;
-    private float _cameraRiseSpeed = .5f;
+    private float _cameraRiseSpeed = 1f; //was originally .5 -skye
     private float _cameraFallSpeed = 3f;
 
     void Update()
