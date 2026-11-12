@@ -6,16 +6,18 @@ public class BallFormManager : MonoBehaviour
     [SerializeField] private SpriteRenderer _playerSprite;
     [SerializeField] private Rigidbody2D _playerRb;
     [SerializeField] private BallForm[] _allBallForms;
-    [SerializeField] private GameObject _player;
     public BallForm currentScriptObjBallForm { get; private set; }
     private int _ballIndex = 0;
     public static event Action<float,float,float,float,float> changeValues;
+    public enum BallType { BounceBall = 0, BowlBall = 1 }
+    public static BallType currentBall;
 
 
     void Awake()
     {
         PlayerInput.onPlayerSwapBall += SwapBall;    
-        currentScriptObjBallForm = _allBallForms[_ballIndex];  
+        currentScriptObjBallForm = _allBallForms[_ballIndex];
+        currentBall = (BallType)_ballIndex;
     }
 
 
@@ -29,6 +31,7 @@ public class BallFormManager : MonoBehaviour
         _ballIndex = (_ballIndex < _allBallForms.Length - 1) ? ++_ballIndex : 0;
         currentScriptObjBallForm = _allBallForms[_ballIndex];
         ChangeValues(currentScriptObjBallForm);
+        currentBall = (BallType)_ballIndex;
     }
 
     private void ChangeValues(BallForm newForm)

@@ -9,7 +9,15 @@ public class PlayerDragInput : MonoBehaviour
     public Vector3 FinalDragVector { get; set; } = Vector2.zero;
     public static event Action<Vector3> onDrawArrow;
     public static event Action<bool> onShowArrow;
-    
+
+
+    void Awake()
+    {
+        PlayerInput.onMouseDown += OnMouseButtonDown;
+        PlayerInput.onMouseDrag += OnDragMouse;
+        PlayerInput.onMouseUp += OnMouseButtonUp;
+    }
+
     void Start()
     {
         // make sure the arrow object is turned off and not showing
@@ -18,7 +26,7 @@ public class PlayerDragInput : MonoBehaviour
     }
 
 
-    void OnMouseDown()
+    private void OnMouseButtonDown()
     {
         mouseStartWorldPos = GetMouseWorldPosition();
         // player pressed mouse button so turn on arrow object
@@ -26,7 +34,7 @@ public class PlayerDragInput : MonoBehaviour
     }
 
 
-    void OnMouseDrag()
+    private void OnDragMouse()
     {
         // these values are calculating while the player holds button down and drags the mouse around
         // this is updating the arrow
@@ -39,7 +47,7 @@ public class PlayerDragInput : MonoBehaviour
     }
 
 
-    void OnMouseUp()
+    private void OnMouseButtonUp()
     {
         // these values are used for the launch
         Vector3 currentMousePos = GetMouseWorldPosition();
@@ -64,13 +72,13 @@ public class PlayerDragInput : MonoBehaviour
     }
 
 
-    float GetMaxArrowLength()
+    private float GetMaxArrowLength()
     {
         return arrowMaxLength;
     }
 
 
-    Vector3 GetMouseWorldPosition()
+    private Vector3 GetMouseWorldPosition()
     {
         // screen to world point returns the input of the screen space where the player clicked, but in the form of world space coordinates
         // this allows for small increments of power - the vector that is produced isn't just a massive value.
