@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
 
-public class PlayerDragInput : MonoBehaviour
+public class PlayerMouseInput : MonoBehaviour
 {
     [SerializeField] private float arrowMaxLength = 1f;
     private Vector3 mouseStartWorldPos;
     private Camera _mainCam;
+    private bool _canUpdateLaunchValues => PlayerMovement.CanLaunch;
     public Vector3 FinalDragVector { get; set; } = Vector2.zero;
     public static event Action<Vector3> onDrawArrow;
     public static event Action<bool> onShowArrow;
@@ -28,6 +29,7 @@ public class PlayerDragInput : MonoBehaviour
 
     private void OnMouseButtonDown()
     {
+        if(!_canUpdateLaunchValues) return;
         mouseStartWorldPos = GetMouseWorldPosition();
         // player pressed mouse button so turn on arrow object
         onShowArrow?.Invoke(true);
@@ -36,6 +38,7 @@ public class PlayerDragInput : MonoBehaviour
 
     private void OnDragMouse()
     {
+        if(!_canUpdateLaunchValues) return;
         // these values are calculating while the player holds button down and drags the mouse around
         // this is updating the arrow
         Vector3 currentMousePos = GetMouseWorldPosition();
@@ -49,6 +52,7 @@ public class PlayerDragInput : MonoBehaviour
 
     private void OnMouseButtonUp()
     {
+        if(!_canUpdateLaunchValues) return;
         // these values are used for the launch
         Vector3 currentMousePos = GetMouseWorldPosition();
         // -1 because we want the vector to shoot in the opposite direction of where the player drags the mouse

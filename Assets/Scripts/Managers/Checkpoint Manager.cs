@@ -5,12 +5,14 @@ public class CheckpointManager : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D Player;
     private Camera _mainCam;
-    public static Vector2? CurrentCheckpoint { get; set; }
-
+    private Checkpoint _currentCheckpoint;
+    public static event Action StartTransition;
 
     void Awake()
     {
-        CameraFollowPlayerYxis.ResetPlayer += SetPlayerPosition;
+        Checkpoint.NotifyCheckpointManager += UpdateCurrentCheckpoint;
+        TransitionManager.BeginTransition += CanResetPosition;
+        TransitionManager.ResetPlayer += SetPosition;
     }
 
     void Start()
@@ -20,14 +22,36 @@ public class CheckpointManager : MonoBehaviour
         _mainCam = Camera.main;
     }
 
-    private void SetPlayerPosition()
+    private void CanResetPosition()
+    {
+        if(_currentCheckpoint == null) return;
+        StartTransition?.Invoke();
+    }
+
+
+    private void UpdateCurrentCheckpoint(Checkpoint checkpoint)
+    {
+        // basically first checkpoint
+        if(_currentCheckpoint == null)
+        {
+            _currentCheckpoint = checkpoint;
+        }
+        // update the checkpoint if new checkpoint is better
+        if(checkpoint.CheckpointID > _currentCheckpoint.CheckpointID)
+        {
+            _currentCheckpoint = checkpoint;
+        }
+    }
+
+
+    private void SetPosition()
     {
         // stop player
         Player.velocity = Vector2.zero;
         // place them at checkpoint position
-        Player.position = (Vector2)CurrentCheckpoint;
+        Player.position = _currentCheckpoint.GetPosition();
         // place the camera at the checkpoint position
-        _mainCam.transform.position = new Vector3(0, ((Vector2)CurrentCheckpoint).y, -10);
+        _mainCam.transform.position = new Vector3(0, _currentCheckpoint.GetPositionY(), -10);
     }
 
 

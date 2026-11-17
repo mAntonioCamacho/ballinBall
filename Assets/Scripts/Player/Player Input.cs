@@ -9,7 +9,6 @@ public class PlayerInput : MonoBehaviour
     #endregion
     /// 
     /// 
-    /// 
     #region Player Movement Events
         public static event Action onPlayerLaunch;
         public static event Action onPlayerSwapBall;
@@ -17,75 +16,33 @@ public class PlayerInput : MonoBehaviour
     #endregion
     /// 
     /// 
-    /// 
-    #region Player Mouse Events
+    #region Player Mouse Events & Variable(s)
         public static event Action onMouseDown;
         public static event Action onMouseDrag;
         public static event Action onMouseUp;
-    #endregion
-    /// 
-    ///
-    /// 
-    #region Pause Event Info
-        public static event Action<bool> onPlayerPause;
-        private bool _isPaused = false;
+        private bool _wasPlayerClicked;
     #endregion
     ///
     /// 
-    ///
-    public static event Action onPlayerWantReset;
-    public static bool IsTransitioning { get; set ; } = false;
-    private bool HasCheckpoint => CheckpointManager.CurrentCheckpoint != null;
-    public Vector2 MoveInput { get; private set; }
-    public static bool CanLaunch { get; set; }
-    private bool _didPlayerClick = false;
-    private bool CanGetInput => !_isPaused && !IsTransitioning;
+    private static Vector2 _moveInput = Vector2.zero;
+    public static float PlayerInputDirection { get {return _moveInput.x;} }
+
 
     void Update()
     {
         CheckBallSwapInput();
         CheckMovementInput();
         CheckBrakeInput();
-        CheckIfPausedGame();
-        GoToLastCheckpointCheck();
-    }
-
-
-    void OnMouseDown()
-    {
-        CheckMouseInputDown();
-    }
-
-
-    void OnMouseDrag()
-    {
-        CheckMouseInputDrag();
-    }
-
-
-    void OnMouseUp()
-    {
-        CheckMouseInputUp();   
+        CheckMouseInput();
     }
 
 
     private void GetMoveInput()
     {
-        MoveInput = new Vector2(
+        _moveInput = new Vector2(
             Input.GetAxisRaw("Horizontal"),
             0
         );
-    }
-
-
-    private void CheckIfPausedGame()
-    {
-        if(IsTransitioning) return;
-        if(Input.GetKeyUp(KeyCode.Escape))
-        {
-            onPlayerPause?.Invoke(_isPaused);   
-        }
-        _isPaused = (Time.timeScale == 0) ? true : false;
     }
 
 
@@ -98,39 +55,53 @@ public class PlayerInput : MonoBehaviour
     }
 
 
-    private void CheckMouseInputDown()
+    private void CheckMouseInput()
     {
-        if(Input.GetMouseButtonDown(0) && CanGetInput && CanLaunch)
-        {
-            onMouseDown?.Invoke();
-            _didPlayerClick = true;
-        }
-    }
+        CheckMouseInputDown();
+        if(!_wasPlayerClicked) return;
 
-
-    private void CheckMouseInputDrag()
-    {
-        if(Input.GetMouseButton(0) && !_isPaused && _didPlayerClick)
+        if(Input.GetMouseButton(0))
         {
             onMouseDrag?.Invoke();
         }
+        CheckMouseInputUp();
     }
 
 
     private void CheckMouseInputUp()
     {
-        if(Input.GetMouseButtonUp(0) && !_isPaused && _didPlayerClick)
+        if(Input.GetMouseButtonUp(0))
         {
+            _wasPlayerClicked = false;
             onMouseUp?.Invoke();
             onPlayerLaunch?.Invoke();
-            _didPlayerClick = false;
         }
+    }
+
+
+    private void CheckMouseInputDown()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            _wasPlayerClicked = MouseClickHitPlayer();
+            if(!_wasPlayerClicked) return;
+            onMouseDown?.Invoke();
+        }
+    }
+
+
+    private bool MouseClickHitPlayer()
+    {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+        if(hit.collider == null) return false;
+        return  hit.collider.CompareTag("Player");
     }
 
 
     private void CheckMovementInput()
     {
-        if(Input.GetAxisRaw("Horizontal") != MoveInput.x && CanGetInput)
+        if(Input.GetAxisRaw("Horizontal") != _moveInput.x)
         {
             GetMoveInput();
         }
@@ -139,21 +110,10 @@ public class PlayerInput : MonoBehaviour
 
     private void CheckBallSwapInput()
     {
-        if(Input.GetKeyDown(_swapBall) && CanGetInput)
+        if(Input.GetKeyDown(_swapBall))
         {
             onPlayerSwapBall?.Invoke();
         }
     }
-
-
-    private void GoToLastCheckpointCheck()
-    {
-        if(Input.GetKeyUp(KeyCode.R) && CanGetInput && HasCheckpoint)
-        {
-            IsTransitioning = true;
-            onPlayerWantReset?.Invoke();
-        }
-    }
-
 
 }

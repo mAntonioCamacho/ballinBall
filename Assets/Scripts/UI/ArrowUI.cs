@@ -7,8 +7,8 @@ public class ArrowUI : MonoBehaviour
     private float arrowGrowthSpeed = 6.4f;
     void Awake()
     {
-        PlayerDragInput.onDrawArrow += OnDrawArrowObject;
-        PlayerDragInput.onShowArrow += OnShowArrowObject;
+        PlayerMouseInput.onDrawArrow += OnDrawArrowObject;
+        PlayerMouseInput.onShowArrow += OnShowArrowObject;
     }
 
     private void OnDrawArrowObject(Vector3 dragVector)
