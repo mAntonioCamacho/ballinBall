@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
         [SerializeField] private PlayerInput _input;
-        [SerializeField] private PlayerDragInput _dragInput;
+        [SerializeField] private PlayerMouseInput _dragInput;
         [SerializeField] private Rigidbody2D _rBody;
         [SerializeField] private LayerMask _groundLayer;
 
@@ -25,22 +25,24 @@ public class PlayerMovement : MonoBehaviour
         private float _speed;
         private float _inAirSpeed;
         private float _fallSpeedCap;
+        private static bool _canLaunch;
+        public static bool CanLaunch { get {return _canLaunch;} }
 
         /// <summary>
         /// This vector belongs to SmoothDamp function - don't use it
         /// </summary>
         private Vector2 _smoothDampVec;
+        private float _smoothDampFloat;
         private float _downwardYvelocity;
 
         /// <summary>
         /// This value is for BOTH balls y velocity - since gravity changes between the two, y velocity is changed too.
         /// </summary>
-        private float _trueGroundedValue = .00016f;
+        private float _trueGroundedValue = .16f;
 
     #endregion
-    /// 
-    /// 
-    /// 
+    
+
     #region All Functions 
 
         #region Unity Functions
@@ -54,8 +56,9 @@ public class PlayerMovement : MonoBehaviour
 
             void Update()
             {
-                PlayerInput.CanLaunch = (Mathf.Abs(_rBody.velocity.y) < _trueGroundedValue && Mathf.Abs(_rBody.velocity.x) < _trueGroundedValue && GroundedCheck()) ? true : false;
-                onBallReadyForLaunch?.Invoke(PlayerInput.CanLaunch);
+                AutoSlowToStop();
+                _canLaunch = (Mathf.Abs(_rBody.velocity.x) < _trueGroundedValue && GroundedCheck()) ? true : false;
+                onBallReadyForLaunch?.Invoke(_canLaunch);
                 BowlinBallHitGround();
             }
 
@@ -64,19 +67,19 @@ public class PlayerMovement : MonoBehaviour
             {
                 Move();
                 FallVelocityCap();
+                
             }
 
         #endregion
-    /// 
-    /// 
-    /// 
+   
+
         #region Player Movement Private Functions     
             private void Move()
             {
                 // if grounded or no input - ignore the following code and return
-                if(GroundedCheck() || _input.MoveInput.x == 0) return;
+                if(GroundedCheck() || PlayerInput.PlayerInputDirection == 0) return;
 
-                float xVelocity = _input.MoveInput.x * _speed;
+                float xVelocity = PlayerInput.PlayerInputDirection * _speed;
                 Vector2 direction = new Vector2(xVelocity , _rBody.velocity.y);
                 _rBody.velocity = Vector2.SmoothDamp(_rBody.velocity, direction, ref _smoothDampVec, _inAirSpeed);
             }
@@ -84,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
             
             private void Launch()
             {
-                if(PlayerInput.CanLaunch)
+                if(_canLaunch)
                 {
                     _rBody.AddForce(_dragInput.FinalDragVector * _launchPower, ForceMode2D.Impulse);
                 }
@@ -96,21 +99,23 @@ public class PlayerMovement : MonoBehaviour
             {
                 if(GroundedCheck())
                 {
-                    _rBody.velocity = (_rBody.velocity != Vector2.zero) ? Vector2.Lerp(Vector2.zero, _rBody.velocity, _brakePower) : _rBody.velocity;
-                    Debug.Log(_rBody.velocity);
-                    // these are random values right now - this has to do with the rotation of the ball - with it being unlocked
-                    // the x velocity is affected by the rotation so trying to tune it so that the launch can started sooner 
-                    // but not to soon - also trying to get rotation to slow down too with angular velocity
-                    // when ball slows down - roll should slow down too.
-                    if(Mathf.Abs(_rBody.velocity.x) < .045f)
-                    {
-                        _rBody.velocity = _rBody.velocity/1.1f;
-                        _rBody.angularVelocity = -_rBody.velocity.x/2;
-                    }
-                             
+                    _rBody.velocity = (_rBody.velocity != Vector2.zero) ? Vector2.SmoothDamp(_rBody.velocity, Vector2.zero, ref _smoothDampVec, _brakePower) : _rBody.velocity;
+                    _rBody.angularVelocity = (_rBody.velocity != Vector2.zero) ? Mathf.SmoothDamp(_rBody.angularVelocity, 0f, ref _smoothDampFloat, _brakePower) : _rBody.angularVelocity;       
                 }
                     
             }
+
+
+            private void AutoSlowToStop()
+            {
+                // random value because testing for right frames to stop
+                if(Mathf.Abs(_rBody.velocity.x) < _trueGroundedValue && GroundedCheck() && Mathf.Abs(_rBody.velocity.x) > 0.01f)
+                {
+                    _rBody.velocity = Vector2.Lerp(_rBody.velocity, Vector2.zero, .8f);
+                    _rBody.angularVelocity = Mathf.Lerp(_rBody.angularVelocity, 0f, .8f);
+                }
+            }
+
 
         #endregion
     ///

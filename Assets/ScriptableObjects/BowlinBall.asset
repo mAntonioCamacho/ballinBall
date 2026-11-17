@@ -18,7 +18,7 @@ MonoBehaviour:
   launchPower: 10
   moveSpeed: 2
   playerGravity: 8
-  brakePower: 0.98
+  brakePower: 0.45
   inAirSpeed: 1.975
   fallSpeedCap: 30
   canBreakObjects: 1

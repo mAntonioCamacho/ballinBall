@@ -6,29 +6,21 @@ public class PauseMenuUI : MonoBehaviour
 
     void Awake()
     {
-        PlayerInput.onPlayerPause += PauseGame;
+        PauseMenuManager.ShowPauseMenu += PauseGame;
     }
 
     private void PauseGame(bool isGamePaused)
     {
-        Debug.Log(isGamePaused);
         if(isGamePaused)
         {
-            Debug.Log("unpaused");
-            PauseMenu.SetActive(!isGamePaused);
-            Time.timeScale = 1;
+            PauseMenu.SetActive(isGamePaused);
         }
         else
         {
-            Debug.Log("paused");
-            PauseMenu.SetActive(!isGamePaused);
-            Time.timeScale = 0;
+            PauseMenu.SetActive(isGamePaused);
         }
             
     }
 
-    public void PrintOnButtonPress()
-    {
-        Debug.Log("Pressed");
-    }
+
 }
