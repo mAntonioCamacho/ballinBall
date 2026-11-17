@@ -1,0 +1,796 @@
+fileFormatVersion: 2
+guid: 74b1938928e63a841a33fc0140a8fe42
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: livingroom_assets_0
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1455
+        width: 466
+        height: 564
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b33bd97e1a1f324a8b9b9f7c83c328c
+      internalID: -1999125586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_1
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 1448
+        width: 466
+        height: 564
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23d83349a8b7da347a3f0456eaa8a14d
+      internalID: 1904221781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_2
+      rect:
+        serializedVersion: 2
+        x: 1164
+        y: 1438
+        width: 1056
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b31cf80b804d8446a696ecd7c8b733d
+      internalID: -534769594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_3
+      rect:
+        serializedVersion: 2
+        x: 2373
+        y: 1845
+        width: 161
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79602512ad14a9b4a878ef6c86a2fbdb
+      internalID: -784079837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_4
+      rect:
+        serializedVersion: 2
+        x: 2717
+        y: 1748
+        width: 397
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f10fbfa1e4b77843964970467dd9f12
+      internalID: 1068449471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_5
+      rect:
+        serializedVersion: 2
+        x: 3395
+        y: 1925
+        width: 16
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 982e15079c3f63a42b5dd4510914df52
+      internalID: 2084041910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_6
+      rect:
+        serializedVersion: 2
+        x: 3531
+        y: 1920
+        width: 40
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b005bfd7743262468b49d4537e6f5ea
+      internalID: 395036827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_7
+      rect:
+        serializedVersion: 2
+        x: 3753
+        y: 1921
+        width: 15
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49b943b1fb4c7734189225b09cfceb29
+      internalID: -1529078737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_8
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 1639
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6938e5d674cd78449a0994791c84536
+      internalID: -28133470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_9
+      rect:
+        serializedVersion: 2
+        x: 2359
+        y: 1394
+        width: 191
+        height: 399
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66e6b81301c20234f91590769f32a52e
+      internalID: -1815810020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_10
+      rect:
+        serializedVersion: 2
+        x: 2676
+        y: 1617
+        width: 489
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffc785db5b88eba4e81f85c2a23c491b
+      internalID: 2081460906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_11
+      rect:
+        serializedVersion: 2
+        x: 3278
+        y: 514
+        width: 554
+        height: 1405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd1180231be07e49b9b288307128a34
+      internalID: -890223759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_12
+      rect:
+        serializedVersion: 2
+        x: 3259
+        y: 1544
+        width: 5
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 766b5e0a447cfa34cbce92c2b0c06453
+      internalID: -1136184824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_13
+      rect:
+        serializedVersion: 2
+        x: 3258
+        y: 1486
+        width: 6
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f6bd281e9355cf449c4d12c279059db
+      internalID: 2144382248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_14
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 882
+        width: 1015
+        height: 536
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3221542c2748853458c9fc322a1f4b48
+      internalID: -1736443770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_15
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 568
+        width: 351
+        height: 699
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d23d4b9ccb2fc347815eecd6511328e
+      internalID: -1422146128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_16
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 527
+        width: 646
+        height: 803
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 698024098e57c6e4da0496054c6e1db5
+      internalID: 217484659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_17
+      rect:
+        serializedVersion: 2
+        x: 2371
+        y: 513
+        width: 296
+        height: 638
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d74ee01065593684ba98996cc089dbcf
+      internalID: 2054307140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_18
+      rect:
+        serializedVersion: 2
+        x: 2795
+        y: 502
+        width: 338
+        height: 928
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bef6e936a07e3f48a718b32f2518edd
+      internalID: -1335920130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_19
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 482
+        width: 231
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76e9f62b257778e44a1a2d524d921680
+      internalID: 2048677481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_20
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 521
+        width: 202
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 815050ae8af60d1489cf6187cdb336c1
+      internalID: 344425972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_21
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 527
+        width: 187
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25cd10fb2c77e5b49a81127afa27cb43
+      internalID: -863807550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_22
+      rect:
+        serializedVersion: 2
+        x: 3672
+        y: 505
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01a33b61f930dac40bf6766d1b460449
+      internalID: -705090650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_23
+      rect:
+        serializedVersion: 2
+        x: 3719
+        y: 508
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53c694794ea606746be89fda5fdf39d3
+      internalID: 2071448526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_24
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 475
+        width: 13
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59ea4f585c299e54183dc2c161fc7efa
+      internalID: 1797639191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_25
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 473
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54bcc9454e4105043af73faf2dc98d98
+      internalID: -1643427000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_26
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 117
+        width: 385
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d863b051732e26146a7bc05b55023851
+      internalID: -277321611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_27
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 332
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b730f2f57e081c45bbac94d87d9208f
+      internalID: 826146137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_28
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 121
+        width: 386
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf9a2b531b65cc34ea3172b7dc132da9
+      internalID: 1370663797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_29
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 118
+        width: 203
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae10998ebd65cf4f8cc279a97731450
+      internalID: -1204567284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: livingroom_assets_30
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 119
+        width: 385
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d9f91c36309fe44aa026858f7cf0b65
+      internalID: -751921269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      livingroom_assets_0: -1999125586
+      livingroom_assets_1: 1904221781
+      livingroom_assets_10: 2081460906
+      livingroom_assets_11: -890223759
+      livingroom_assets_12: -1136184824
+      livingroom_assets_13: 2144382248
+      livingroom_assets_14: -1736443770
+      livingroom_assets_15: -1422146128
+      livingroom_assets_16: 217484659
+      livingroom_assets_17: 2054307140
+      livingroom_assets_18: -1335920130
+      livingroom_assets_19: 2048677481
+      livingroom_assets_2: -534769594
+      livingroom_assets_20: 344425972
+      livingroom_assets_21: -863807550
+      livingroom_assets_22: -705090650
+      livingroom_assets_23: 2071448526
+      livingroom_assets_24: 1797639191
+      livingroom_assets_25: -1643427000
+      livingroom_assets_26: -277321611
+      livingroom_assets_27: 826146137
+      livingroom_assets_28: 1370663797
+      livingroom_assets_29: -1204567284
+      livingroom_assets_3: -784079837
+      livingroom_assets_30: -751921269
+      livingroom_assets_4: 1068449471
+      livingroom_assets_5: 2084041910
+      livingroom_assets_6: 395036827
+      livingroom_assets_7: -1529078737
+      livingroom_assets_8: -28133470
+      livingroom_assets_9: -1815810020
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
