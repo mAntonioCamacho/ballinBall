@@ -1,0 +1,92 @@
+using System;
+using UnityEngine;
+
+public class PlayerMouseInput : MonoBehaviour
+{
+    [SerializeField] private float arrowMaxLength = 1f;
+    private Vector3 mouseStartWorldPos;
+    private Camera _mainCam;
+    private bool _canUpdateLaunchValues => PlayerMovement.CanLaunch;
+    public Vector3 FinalDragVector { get; set; } = Vector2.zero;
+    public static event Action<Vector3> onDrawArrow;
+    public static event Action<bool> onShowArrow;
+
+
+    void Awake()
+    {
+        PlayerInput.onMouseDown += OnMouseButtonDown;
+        PlayerInput.onMouseDrag += OnDragMouse;
+        PlayerInput.onMouseUp += OnMouseButtonUp;
+    }
+
+    void Start()
+    {
+        // make sure the arrow object is turned off and not showing
+        onShowArrow?.Invoke(false);
+        _mainCam = Camera.main;
+    }
+
+
+    private void OnMouseButtonDown()
+    {
+        if(!_canUpdateLaunchValues) return;
+        mouseStartWorldPos = GetMouseWorldPosition();
+        // player pressed mouse button so turn on arrow object
+        onShowArrow?.Invoke(true);
+    }
+
+
+    private void OnDragMouse()
+    {
+        if(!_canUpdateLaunchValues) return;
+        // these values are calculating while the player holds button down and drags the mouse around
+        // this is updating the arrow
+        Vector3 currentMousePos = GetMouseWorldPosition();
+        Vector3 dragVector = currentMousePos - mouseStartWorldPos;
+        
+        // update the arrow 
+        onDrawArrow?.Invoke(dragVector);
+        
+    }
+
+
+    private void OnMouseButtonUp()
+    {
+        if(!_canUpdateLaunchValues) return;
+        // these values are used for the launch
+        Vector3 currentMousePos = GetMouseWorldPosition();
+        // -1 because we want the vector to shoot in the opposite direction of where the player drags the mouse
+        Vector3 dragVector = (currentMousePos - mouseStartWorldPos) * -1;
+        float currentDistance = dragVector.magnitude;
+
+        float maxAllowedLength = GetMaxArrowLength();
+        float finalLength = Mathf.Min(currentDistance, maxAllowedLength);
+
+        if(currentDistance > .001f)
+        {
+            Vector2 direction = dragVector.normalized;
+            FinalDragVector = direction * finalLength;
+        }
+        else
+        {
+            FinalDragVector = Vector2.zero;
+        }
+
+        onShowArrow?.Invoke(false);
+    }
+
+
+    private float GetMaxArrowLength()
+    {
+        return arrowMaxLength;
+    }
+
+
+    private Vector3 GetMouseWorldPosition()
+    {
+        // screen to world point returns the input of the screen space where the player clicked, but in the form of world space coordinates
+        // this allows for small increments of power - the vector that is produced isn't just a massive value.
+        // IE where the player clicked on screen to where the player dragged, that "vector" (dragVector) is what is made and used in later calculations
+        return _mainCam.ScreenToWorldPoint(Input.mousePosition);
+    }
+}
